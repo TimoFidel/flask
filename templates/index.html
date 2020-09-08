@@ -2,19 +2,33 @@
 
 {% block head %}
     <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
+    
 {% endblock %}
 
 {% block body %}
-    {% for post in posts %}
-        <hr>
-        <a href='{{post.web_link}}'>{{post.web_link}}</a>
-        <p>{{post.comment}}</p>
-        <hr>
-    {% endfor %}
+    <section>
+         <!--navigation--->
+         <nav>
+            <!--logo-->
+            <a href="#" class="logo">SITES</a>
+            <!--menu-->
+            <ul>
+                <li><a href='/'>Home</a> </li>
+                <li><a href=/site>site</a> </li>
+            </ul>
+        </nav>
+        {% for post in posts %}
+            <div class="test-container">
+            <a href='{{post.web_link}}'>{{post.web_link}}</a>
+            <p>{{post.comment}}</p>
+            </div>
+        {% endfor %}
+        
 
 
 
 
 
-
+    </section>
 {% endblock %}

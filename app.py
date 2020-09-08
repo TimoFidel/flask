@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template,request
 from pymongo import MongoClient
 from datetime import datetime
 
@@ -15,13 +15,25 @@ site=[
 
 
 col.insert_many(site)
+@app.route('/',methods=['GET','POST'])
+def home():
 
-sites=col.find().limit(3)
+    if request.method=='POST':
+        post_title=request.form['title']
+        post1=col.find().limit(3)
+        for x in post1:
+            if x['web_link']==post_title:
+                return render_template('home.html',site=x['web_link'],comment=x['comment'])
+            #else:
+               # return render_template('home.html')
+    else:
+        return render_template('home.html',site="N/A",comment="N/A") 
+        
 
-
-@app.route('/')
+@app.route('/site')
 def post():
-    return render_template('index.html',posts=sites)
+    post=col.find().limit(3)
+    return render_template('index.html',posts=post)
 
 if __name__=="__main__":
     app.run(debug=True)
