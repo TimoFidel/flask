@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Login</title>
+{% endblock %}
+
+{% block body %}
+    {% for post in posts %}
+        <hr>
+        <a href='{{post.web_link}}'>{{post.web_link}}</a>
+        <p>{{post.comment}}</p>
+        <hr>
+    {% endfor %}
+
+
+
+
+
+
+{% endblock %}
