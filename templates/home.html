@@ -26,16 +26,15 @@
         </nav>
         <div >
             <h2>Search Sites:</h2>
-            <form action='/' method='POST'>
+            <form action='/admin' method='POST'>
                 Site:<input type='text' name="title" id="title"><br>
-                <input type="submit" value="post">
+                <br>
+                <textarea rows="4" cols="50" name='comment' id="commend">Enter comment here....</textarea><br>
+                <input type="submit" value="submit">
             </form>
 
         </div>   
-        <div>
-            <a href='{{site}}'>{{site}}</a>
-            <p>{{comment}}</p>
-        </div>
+        
 
         
     </section>

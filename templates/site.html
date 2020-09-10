@@ -18,20 +18,12 @@
                 <li><a href='/site'>site</a> </li>
             </ul>
         </nav>
-
-        <div>
-
-            <form action='/' method='POST'>
-                Site:<input type='text' name="title" id="title"><br>
-                <br>
-                <input type="submit" value="Search">
-            </form>
-
-        </div>
-        <div>
-            <a href='{{site}}'>{{site}}</a>
-            <p>{{comment}}</p>
-        </div>
+        {% for post in posts %}
+            <div class="test-container">
+            <a href='{{post.site}}'>{{post.site}}</a>
+            <p>{{post.comment}}</p>
+            </div>
+        {% endfor %}
         
 
 
