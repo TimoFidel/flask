@@ -9,36 +9,44 @@ col=db["posts"]
 
 @app.route('/',methods=['GET','POST'])
 def search():
+    post=col.find()
+    return render_template('site.html',posts=post)
+
+
+@app.route('/admin',methods=['GET','POST'])
+def admin():
+    if request.method =='POST':
+        title=request.form['title']
+        site=request.form['site']
+        comment=request.form['comment']
+        date=request.form['date']
+        col.insert_one({'title':title,'site':site,'comment':comment,'date':date })
+        return render_template('home.html',post='Successful')
+    else:
+        return render_template('home.html',post='Unsuccessful')
+
+@app.route('/site',methods=['GET','POST'])
+def sites():
     if request.method =='POST':
         flag=0
         post_title=request.form['title']
         result=col.find()
         for x in result:
-            if x['site']==post_title:
+            if x['title']==post_title:
                 flag=1
+                break
             else:
                 flag=0
         if flag==1:
-            return render_template('/index.html',site=x['site'],comment=x['comment'])
+            return render_template('index.html',site=x['site'],comment=x['comment'])
         else:
-            return render_template('/index.html',site='NotFound',comment='NotFound')
-
+            return render_template('index.html',site='NotFound',comment='NotFound')
     else:
-        return render_template('index.html',site='NOTFOUND',comment='NOTFOUND')
-@app.route('/admin',methods=['GET','POST'])
-def admin():
-    if request.method =='POST':
-        site=request.form['title']
-        comment=request.form['comment']
-        col.insert_one({'site':site,'comment':comment})
-        return 'done'
-    else:
-        return render_template('home.html')
+        return render_template('index.html')
 
-@app.route('/site')
-def sites():
-    post=col.find()
-    return render_template('site.html',posts=post)
+@app.route('/about')
+def bout():
+    return "About Page"
 
 
 

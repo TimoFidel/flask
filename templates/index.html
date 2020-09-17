@@ -1,33 +1,24 @@
 {% extends 'base.html' %}
 
 {% block head %}
-    <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
+    <title>Home</title>
+    
     
 {% endblock %}
 
 {% block body %}
     <section>
-         <!--navigation--->
-         <nav>
-            <!--logo-->
-            <a href="#" class="logo">SITES</a>
-            <!--menu-->
-            <ul>
-                <li><a href='/'>Home</a> </li>
-                <li><a href='/site'>site</a> </li>
-            </ul>
-        </nav>
-
+        
         <div>
 
-            <form action='/' method='POST'>
+            <form action='/site' method='POST'>
                 Site:<input type='text' name="title" id="title"><br>
                 <br>
                 <input type="submit" value="Search">
             </form>
 
         </div>
+        <br>
         <div>
             <a href='{{site}}'>{{site}}</a>
             <p>{{comment}}</p>

@@ -1,34 +1,25 @@
 {% extends 'base.html' %}
 
 {% block head %}
-    <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
+    <title>Home</title>
+    
     
 {% endblock %}
 
 {% block body %}
-    <section>
-         <!--navigation--->
-         <nav>
-            <!--logo-->
-            <a href="#" class="logo">SITES</a>
-            <!--menu-->
-            <ul>
-                <li><a href='/'>Home</a> </li>
-                <li><a href='/site'>site</a> </li>
-            </ul>
-        </nav>
+         
         {% for post in posts %}
-            <div class="test-container">
-            <a href='{{post.site}}'>{{post.site}}</a>
-            <p>{{post.comment}}</p>
-            </div>
+            <article class="media content-section">
+                <div class="media-body">
+                <div class="article-metadata">
+                    <a class="mr-2" href='{{post.site}}'>{{ post.title }}</a>
+                    <small class="text-muted">{{ post.date }}</small>
+                </div>
+                <h2><a class="article-title" href='{{ post.site }}'>{{ post.site }}</a></h2>
+                <p class="article-content">{{ post.comment }}</p>
+                </div>
+            </article>
         {% endfor %}
         
 
-
-
-
-
-    </section>
 {% endblock %}
