@@ -19,10 +19,16 @@
 
         </div>
         <br>
-        <div>
-            <a href='{{site}}'>{{site}}</a>
-            <p>{{comment}}</p>
-        </div>
+        <article class="media content-section">
+            <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href='{{site}}'>{{ title }}</a>
+                <small class="text-muted">{{ date }}</small>
+            </div>
+            <h2><a class="article-title" href='{{ site }}'>{{ site }}</a></h2>
+            <p class="article-content">{{ comment }}</p>
+            </div>
+        </article>
         
 
 

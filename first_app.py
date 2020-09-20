@@ -38,9 +38,9 @@ def sites():
             else:
                 flag=0
         if flag==1:
-            return render_template('index.html',site=x['site'],comment=x['comment'])
+            return render_template('index.html',site=x['site'],comment=x['comment'],title=x['title'],date=x['date'])
         else:
-            return render_template('index.html',site='NotFound',comment='NotFound')
+            return render_template('index.html',site='NotFound')
     else:
         return render_template('index.html')
 
