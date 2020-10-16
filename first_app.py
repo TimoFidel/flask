@@ -46,7 +46,7 @@ def sites():
 
 @app.route('/about')
 def bout():
-    return "About Page"
+    return "AboutPage"
 
 
 
